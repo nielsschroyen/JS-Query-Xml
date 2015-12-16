@@ -8,6 +8,11 @@
 <body>
     <div id="mainContent">
         <h1>Query XML with javascript!</h1>
+        <p>Load example: </p>
+            <select id="examplesSelectbox">
+              <option disabled selected> -- select an example -- </option>
+              <option value="average">Calculate average</option>
+            </select>
         <p>XML:</p>  
         <textarea rows="8" cols="50" id="xmlTextBox"></textarea>
         <p>Command:</p> 
@@ -19,10 +24,10 @@
         <br />
         <div id="resultDiv"></div>
     </div>
-
+    
+<script type="text/javascript" src="js/examples.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-
 <script type="text/javascript" src="js/xml2json.js"></script>
 
 </body>
