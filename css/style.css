@@ -30,3 +30,13 @@
   width:100%;
   margin:5px 0;
 }
+
+#xmlEditor { 
+    width:100%;
+    height:200px;
+}
+
+#javascriptEditor { 
+    width:100%;
+    height:100px;
+}
