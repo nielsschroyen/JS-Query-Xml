@@ -4,31 +4,32 @@
 <meta charset="utf-8">
 <title>Query XML with javascript</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-    <div id="mainContent">
-        <h1>Query XML with javascript!</h1>
-        <p>Load example: </p>
-            <select id="examplesSelectbox">
-              <option disabled selected> -- select an example -- </option>
-              <option value="average">Calculate average</option>
-            </select>
-        <p>XML:</p>  
-        <textarea  class="textareaFullWidth" rows="8" cols="50" id="xmlTextBox"></textarea>
-        <p>Command:</p> 
-        <textarea class="textareaFullWidth" rows="1" cols="50" id="commandTextBox"></textarea>
-        <br />
-        <br />
-        <button class="buttonStyle" id="queryButton">Run query</button>
-        <br />
-        <br />
-        <div id="resultDiv"></div>
-    </div>
-    
-<script type="text/javascript" src="js/examples.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/xml2json.js"></script>
+</style>
+    <body>
+        <div id="mainContent">
+            <h1>Query XML with javascript!</h1>
+            <p>Load example: </p>
+                <select id="examplesSelectbox">
+                  <option disabled selected> -- select an example -- </option>
+                  <option value="average">Calculate average</option>
+                  <option value="books">Map to objects</option>
+                </select>
+            <p>XML:</p>  
+            <div id="xmlEditor"></div>		       
+            <p>Command:</p> 
+    		<div id="javascriptEditor"></div>
+            <br />
+            <br />
+            <button class="buttonStyle" id="queryButton">Run query</button>
+            <br />
+            <br />
+            <div id="resultDiv"></div>
+        </div>
 
-</body>
+        <script src="https://cdn.jsdelivr.net/ace/1.2.2/min/ace.js" type="text/javascript" charset="utf-8"></script>    
+        <script type="text/javascript" src="js/examples.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/xml2json.js"></script>
+    </body>
 </html>
