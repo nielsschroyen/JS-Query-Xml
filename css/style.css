@@ -1,11 +1,7 @@
 #mainContent {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: xx-large;
-	font-weight: bold;
-	background-color: #E3F0FB;
 	border-radius: 4px;
 	padding: 10px;
-	text-align: center;
 }
 .buttonStyle {
 	border-radius: 4px;
@@ -34,5 +30,4 @@
 .textareaFullWidth{
   width:100%;
   margin:5px 0;
-  padding:3px;
 }
