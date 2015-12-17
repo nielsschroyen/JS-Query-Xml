@@ -40,3 +40,15 @@
     width:100%;
     height:200px;
 }
+
+
+
+/* =========== TREEVIEW ============= */
+.treeview .list-group-item {
+	cursor: pointer;
+}
+
+
+.list-group-item{
+	padding: 1px !important;
+}
