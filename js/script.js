@@ -1,8 +1,9 @@
-var queryButton = document.getElementById("queryButton");
-var examplesSelectbox = document.getElementById("examplesSelectbox");
-queryButton.addEventListener('click', runQuery, false)
-examplesSelectbox.addEventListener('change', updateExample, false)
+document.getElementById("queryButton").addEventListener('click', runQuery, false);
+document.getElementById("exampleAverage").addEventListener('click', function(){ updateExample('average')}, false);
+document.getElementById("exampleBooks").addEventListener('click', function(){updateExample('books')}, false);
   
+
+var  exampleDropdownText = document.getElementById("exampleDropdownText");
 var xmlEditor = ace.edit("xmlEditor");
 xmlEditor.getSession().setMode("ace/mode/xml");
 
@@ -25,11 +26,18 @@ function runQuery() {
     }
 }
 
-function updateExample() {
-   var exampleKey = examplesSelectbox.options[examplesSelectbox.selectedIndex].value;
+function updateSpan(span, content){
+    while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild( document.createTextNode(content) );
+}
+
+function updateExample(exampleKey) {
    var example = xmlExamples[exampleKey]
    
    if(example){
+     updateSpan(exampleDropdownText, example.description);
       xmlEditor.setValue(formatXml(example.xml),-1);
       javascriptEditor.setValue(example.query,-1);
       runQuery();

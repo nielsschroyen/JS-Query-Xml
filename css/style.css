@@ -41,7 +41,9 @@
     height:200px;
 }
 
-
+.dropdownItem{
+	cursor: pointer;
+}
 
 /* =========== TREEVIEW ============= */
 .treeview .list-group-item {

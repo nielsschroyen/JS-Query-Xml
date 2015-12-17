@@ -8,22 +8,29 @@
 </style>
     <body>
         <div id="mainContent">
+            
             <h1>Query XML with javascript!</h1>
-            <p>Load example: </p>
-                <select id="examplesSelectbox">
-                  <option disabled selected> -- select an example -- </option>
-                  <option value="average">Calculate average</option>
-                  <option value="books">Map to objects</option>
-                </select>
-            <p>XML:</p>  
+            <p class="subtitle">Load example: </p>
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span id="exampleDropdownText">select an example</span>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a id="exampleAverage" class="dropdownItem">Calculate average</a></li>
+                <li><a id="exampleBooks" class="dropdownItem">Map to objects</a></li>
+              </ul>
+            </div>    
+            <p class="subtitle">XML:</p>  
             <div id="xmlEditor"></div>		       
-            <p>Command:</p> 
+            <p class="subtitle">Command:</p> 
     		<div id="javascriptEditor"></div>
             <br />
             <br />
             <button class="buttonStyle" id="queryButton">Run query</button>
             <br />
             <br />
+            <p class="subtitle">Command:</p>
             <div id="tree"></div>
         </div>
 
