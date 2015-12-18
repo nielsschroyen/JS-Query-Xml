@@ -2,7 +2,7 @@ document.getElementById("queryButton").addEventListener('click', runQuery, false
 document.getElementById("exampleAverage").addEventListener('click', function(){ updateExample('average')}, false);
 document.getElementById("exampleBooks").addEventListener('click', function(){updateExample('books')}, false);
 document.getElementById("exampleCatalog").addEventListener('click', function(){updateExample('catalog')}, false);
-  
+document.getElementById("exampleBigCatalog").addEventListener('click', function(){updateExampleBigCatalog()}, false);  
 
 var  exampleDropdownText = document.getElementById("exampleDropdownText");
 var xmlEditor = ace.edit("xmlEditor");
@@ -20,7 +20,8 @@ function runQuery() {
             data: objectToTreeview(result),
             showBorder: false,
             expandIcon: 'glyphicon glyphicon-chevron-right',
-            collapseIcon: 'glyphicon glyphicon-chevron-down'
+            collapseIcon: 'glyphicon glyphicon-chevron-down',
+            levels: 1,
         } );
     }
     catch(err) {
@@ -28,11 +29,37 @@ function runQuery() {
     }
 }
 
+function getBigCatalog(callback){
+	var myXML = ""
+	var request = new XMLHttpRequest();
+	request.open("GET", "js/bigcatalog.xml", true);
+	request.onreadystatechange = function(){
+		if (request.readyState == 4) {
+			if (request.status == 200 || request.status == 0) {
+				callback(request.responseText);
+			}
+		}
+	}
+request.send();
+	
+}
+
 function updateSpan(span, content){
     while( span.firstChild ) {
     span.removeChild( span.firstChild );
 }
 span.appendChild( document.createTextNode(content) );
+}
+
+function updateExampleBigCatalog() {   
+   function afterGetXml(xml){
+      updateSpan(exampleDropdownText, 'Big dataset (downloads 10MB)');
+      xmlEditor.setValue(formatXml(xml),-1);
+      javascriptEditor.setValue('xml',-1);
+      runQuery();
+   }
+   
+   getBigCatalog(afterGetXml);
 }
 
 function updateExample(exampleKey) {
