@@ -31,7 +31,7 @@ var xmlToJSON = (function () {
         namespaceKey: '_ns', // tag name for namespace objects
         textKey: '_text', // tag name for text nodes
         valueKey: '_value', // tag name for attribute values
-        attrKey: '_attr', // tag for attr groups
+        attrKey: '', // tag for attr groups
         cdataKey: '_cdata', // tag for cdata nodes (ignored if mergeCDATA is true)
         attrsAsObject: false, // if false, key is used as prefix to name, set prefix to '' to merge children and attrs.
         stripAttrPrefix: true, // remove namespace prefixes from attributes
@@ -93,9 +93,11 @@ var xmlToJSON = (function () {
                 }
 
                 if (options.grokAttr) {
-                    vContent[options.valueKey] = this.grokType(oAttrib.value.replace(trimMatch, ''));
+                   // vContent[options.valueKey] = this.grokType(oAttrib.value.replace(trimMatch, ''));
+                   vContent = this.grokType(oAttrib.value.replace(trimMatch, ''));
                 } else {
-                    vContent[options.valueKey] = oAttrib.value.replace(trimMatch, '');
+                   // vContent[options.valueKey] = oAttrib.value.replace(trimMatch, '');
+                    vContent = oAttrib.value.replace(trimMatch, '');
                 }
 
                 if (options.xmlns && oAttrib.namespaceURI) {
