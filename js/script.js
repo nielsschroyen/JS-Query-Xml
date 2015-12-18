@@ -1,6 +1,7 @@
 document.getElementById("queryButton").addEventListener('click', runQuery, false);
 document.getElementById("exampleAverage").addEventListener('click', function(){ updateExample('average')}, false);
 document.getElementById("exampleBooks").addEventListener('click', function(){updateExample('books')}, false);
+document.getElementById("exampleCatalog").addEventListener('click', function(){updateExample('catalog')}, false);
   
 
 var  exampleDropdownText = document.getElementById("exampleDropdownText");
@@ -13,6 +14,7 @@ javascriptEditor.getSession().setMode("ace/mode/javascript");
 function runQuery() {
     try {
         var xml = xmlToJSON.parseString(xmlEditor.getValue());
+        window.xmlObject = xml;
         var result = eval(javascriptEditor.getValue());
        $('#tree').treeview( {
             data: objectToTreeview(result),
@@ -37,7 +39,7 @@ function updateExample(exampleKey) {
    var example = xmlExamples[exampleKey]
    
    if(example){
-     updateSpan(exampleDropdownText, example.description);
+      updateSpan(exampleDropdownText, example.description);
       xmlEditor.setValue(formatXml(example.xml),-1);
       javascriptEditor.setValue(example.query,-1);
       runQuery();
@@ -57,11 +59,11 @@ function objectToTreeview(obj){
             arr.push({text: prop, selectable: false, nodes: objectToTreeview(val)});
         }
         else {
-            if(isArray(obj)){
-                val.forEach(function(item,index){arr.push({text:prop+ ' ' + (index+1), selectable: false, nodes: objectToTreeview(item)});});
+            if(isArray(val)){
+                val.forEach(function(item,index){arr.push({text:prop+ '[' + (index) + ']', selectable: false, nodes: objectToTreeview(item)});});
             }
                 else {                    
-                    arr.push({text: prop +': ' + val, selectable: false });        
+                    arr.push({text: '<b>'+prop +':</b> ' + val, selectable: false });        
                 }     
         }
 
