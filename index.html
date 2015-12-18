@@ -4,32 +4,48 @@
 <meta charset="utf-8">
 <title>Query XML with javascript</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </style>
     <body>
-        <div id="mainContent">
-            <h1>Query XML with javascript!</h1>
-            <p>Load example: </p>
-                <select id="examplesSelectbox">
-                  <option disabled selected> -- select an example -- </option>
-                  <option value="average">Calculate average</option>
-                  <option value="books">Map to objects</option>
-                </select>
-            <p>XML:</p>  
-            <div id="xmlEditor"></div>		       
-            <p>Command:</p> 
-    		<div id="javascriptEditor"></div>
-            <br />
-            <br />
-            <button class="buttonStyle" id="queryButton">Run query</button>
-            <br />
-            <br />
-            <div id="resultDiv"></div>
+        <div id="mainContent">    
+                <div class="pull-left margin-right-30"> <h1>Query XML with javascript!</h1></div>
+                <div class="pull-left margin-right-10 padding-top-25"> <h4 class="subtitle">Load example: </h4></div>
+                <div class="pull-left padding-top-25" >
+                    <div class="dropdown">
+                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span id="exampleDropdownText">select an example</span>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a id="exampleAverage" class="dropdownItem">Calculate average</a></li>
+                        <li><a id="exampleBooks" class="dropdownItem">Map to objects</a></li>
+                      </ul>
+                    </div>
+              </div>
+              <div class="clearfix"></div>             
+
+            <div class="row">
+              <div class="col-xs-12 col-md-8">
+                 <h4 class="subtitle">XML:</h4>  
+                <div id="xmlEditor"></div>    
+                <h4 class="subtitle">Command:</h4> 
+                <div id="javascriptEditor"></div>
+                <br />
+                <button class="btn btn-default" id="queryButton">Run query</button>            
+              </div>
+              <div class="col-xs-6 col-md-4">
+                <h4 class="subtitle">Result:</h4>
+                <div id="tree"></div>                
+              </div>
+            </div>                             
         </div>
 
-        <script src="https://cdn.jsdelivr.net/ace/1.2.2/min/ace.js" type="text/javascript" charset="utf-8"></script>    
+        <script src="https://cdn.jsdelivr.net/ace/1.2.2/min/ace.js" type="text/javascript" charset="utf-8"></script>            
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/examples.js"></script>
-        <script type="text/javascript" src="js/script.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/xml2json.js"></script>
+        <script type="text/javascript" src="js/bootstrap-treeview.js"></script>        
+        <script type="text/javascript" src="js/script.js"></script>
     </body>
 </html>
