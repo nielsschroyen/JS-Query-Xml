@@ -187,9 +187,9 @@ function createGrid(newData) {
     var idx = dataView.getIdxById(dataContext.id);
     if (data[idx + 1] && data[idx + 1].indent > data[idx].indent) {
       if (dataContext._collapsed) {
-        return spacer + " <span class='toggle tree-expand'></span>&nbsp;" + value;
+        return spacer + " <span class='toggle tree-expand glyphicon glyphicon-chevron-right'></span>&nbsp;" + value;
       } else {
-        return spacer + " <span class='toggle tree-collapse'></span>&nbsp;" + value;
+        return spacer + " <span class='toggle tree-collapse glyphicon glyphicon-chevron-down'></span>&nbsp;" + value;
       }
     } else {
       return spacer + " <span class='notoggle'></span>&nbsp;" + value;
